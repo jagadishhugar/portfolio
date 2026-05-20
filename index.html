@@ -10,15 +10,6 @@
 </head>
 <body>
 
-    <div id="success-modal" class="modal-overlay">
-        <div class="modal-card">
-            <div class="modal-icon"><i class="fas fa-check-circle"></i></div>
-            <h3>Transmission Complete</h3>
-            <p>Your message has been safely routed and logged into the master spreadsheet matrix.</p>
-            <button id="close-modal-btn" class="btn btn-primary">Acknowledge</button>
-        </div>
-    </div>
-
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">JH<span class="accent">.</span></a>
@@ -152,17 +143,16 @@
         <p class="contact-subtitle">I am currently looking for entry-level opportunities, internships, and data-driven collaborations.</p>
         
         <div class="contact-container">
-            <form id="contact-form" class="contact-form">
-                <input type="text" id="form-name" placeholder="Your Name" required>
-                <input type="email" id="form-email" placeholder="Your Email" required>
-                <textarea id="form-message" placeholder="Your Message" rows="5" required></textarea>
+            <form action="https://docs.google.com/forms/d/e/1FAIpQLSdwYzgK_Ns6CTh-tTnEB3XTRzBeMBK1j_MoBsUzEJcx7C4rAQ/formResponse" method="POST" class="contact-form">
+                
+                <input type="text" name="entry.355204745" placeholder="Your Name" required>
+                
+                <input type="email" name="entry.2044133355" placeholder="Your Email" required>
+                
+                <textarea name="entry.666904480" placeholder="Your Message" rows="5" required></textarea>
+                
                 <button type="submit" class="btn btn-primary">Send Message</button>
             </form>
-
-            <div id="terminal-log-box" class="embedded-console" style="display: none;">
-                <div class="console-header">📡 SOCKET_INTERFACE // DATA_PIPELINE_STATUS</div>
-                <div id="terminal-text-flow" class="console-flow"></div>
-            </div>
 
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/jagadishhugar" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -176,6 +166,10 @@
         <p>&copy; 2026 Jagadish H. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        document.getElementById('mobile-menu').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
