@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const navbarRect = navbar.getBoundingClientRect();
         const elementRect = element.getBoundingClientRect();
 
-        // Calculate location positions inside the white base container
         const leftPos = elementRect.left - navbarRect.left;
         
         indicator.style.left = `${leftPos}px`;
@@ -22,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentActiveItem = document.querySelector('.nav-item.active');
     
-    // Smooth layout calculation timeout
     setTimeout(() => {
         if (currentActiveItem && window.innerWidth > 768) {
             moveIndicator(currentActiveItem);
@@ -30,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 150);
 
     items.forEach(item => {
-        // Hover element tracking controls
         item.addEventListener('mouseenter', (e) => {
             if (window.innerWidth <= 768) return;
             items.forEach(i => i.classList.remove('active', 'hovered'));
@@ -38,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
             moveIndicator(e.target);
         });
 
-        // Hover container escape reset controls
         item.addEventListener('mouseleave', () => {
             if (window.innerWidth <= 768) return;
             items.forEach(i => i.classList.remove('hovered'));
@@ -48,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // Final section link update routing
         item.addEventListener('click', (e) => {
             items.forEach(i => i.classList.remove('active'));
             e.target.classList.add('active');
