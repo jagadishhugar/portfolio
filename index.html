@@ -3,176 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jagadish H | Aspiring Data Scientist</title>
+    <title>NODE // JAGADISH_H // MACHINE_LEARNING_ENGINE</title>
     <link rel="stylesheet" href="style.css">
-    <!-- FontAwesome for professional icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">JH<span class="accent">.</span></a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="menu-toggle" id="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </nav>
+    <div class="grid-overlay"></div>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="hero-content">
-            <p class="hero-subtitle">Hi, my name is</p>
-            <h1 class="hero-title">Jagadish Hugar<span class="accent">.</span></h1>
-            <h2 class="hero-slug">I build intelligent solutions with data.</h2>
-            <p class="hero-description">
-                An aspiring Data Scientist and Machine Learning Engineer focused on bridging the gap between raw data and actionable intelligence. Backed by a solid foundation in Python, statistics, and predictive modeling.
-            </p>
-            <div class="hero-cta">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-            </div>
-        </div>
-    </header>
-
-    <!-- About Section -->
-    <section id="about" class="section">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-grid">
-            <div class="about-text">
-                <p>I am a passionate tech enthusiast pursuing a career in Artificial Intelligence and Data Science. I thrive on diving deep into complex datasets to uncover hidden patterns, build robust machine learning architectures, and optimize algorithms for real-world impact.</p>
-                <p>With structured academic training, continuous self-learning, and hands-on project experience, I have developed a strong knack for algorithmic problem-solving—whether it's fine-tuning predictive algorithms or structuring robust relational databases.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section bg-light">
-        <h2 class="section-title">Technical Expertise</h2>
-        <div class="skills-grid">
-            <div class="skills-category">
-                <h3><i class="fab fa-python accent"></i> Languages & Core</h3>
-                <div class="skill-chips">
-                    <span class="chip">Python</span>
-                    <span class="chip">SQL</span>
-                    <span class="chip">C Programming</span>
-                    <span class="chip">Java</span>
-                </div>
-            </div>
-            <div class="skills-category">
-                <h3><i class="fas fa-brain accent"></i> Data Science & ML</h3>
-                <div class="skill-chips">
-                    <span class="chip">Machine Learning</span>
-                    <span class="chip">Statistical Analysis</span>
-                    <span class="chip">Artificial Neural Networks (ANN)</span>
-                    <span class="chip">Data Structures & Algorithms</span>
-                </div>
-            </div>
-            <div class="skills-category">
-                <h3><i class="fas fa-database accent"></i> Tools & Databases</h3>
-                <span class="skill-chips">
-                    <span class="chip">MySQL / RDBMS</span>
-                    <span class="chip">Git & GitHub</span>
-                    <span class="chip">Pandas & NumPy</span>
-                    <span class="chip">Scikit-Learn</span>
-                </span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="projects-grid">
-            
-            <!-- Project 1 -->
-            <div class="project-card">
-                <div class="project-content">
-                    <div class="project-icon"><i class="fas fa-network-wired"></i></div>
-                    <h3>Artificial Neural Network Classifier</h3>
-                    <p>Designed and trained an Artificial Neural Network optimized for predictive modeling. Focused on architecture optimization, hyperparameter tuning, and performance evaluation to maximize classification accuracy metrics.</p>
-                    <div class="project-tags">
-                        <span>Python</span>
-                        <span>Neural Networks</span>
-                        <span>Deep Learning</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/jagadishhugar" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="project-card">
-                <div class="project-content">
-                    <div class="project-icon"><i class="fas fa-tint"></i></div>
-                    <h3>Emergency Blood Bank Registry</h3>
-                    <p>Developed a comprehensive Relational Database Management System (RDBMS) designed to optimize critical supply chains during emergencies. Built robust schemas, optimized data integrity, and structured seamless query processing.</p>
-                    <div class="project-tags">
-                        <span>SQL</span>
-                        <span>RDBMS</span>
-                        <span>Database Design</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/jagadishhugar" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 3 -->
-            <div class="project-card">
-                <div class="project-content">
-                    <div class="project-icon"><i class="fas fa-code"></i></div>
-                    <h3>Programming Language Converter</h3>
-                    <p>An interactive utility tool built to simulate compilation and cross-language translation logic. Showcases a strong understanding of syntax parsing and client-side computational efficiency.</p>
-                    <div class="project-tags">
-                        <span>JavaScript</span>
-                        <span>HTML5</span>
-                        <span>CSS3</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/jagadishhugar" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section bg-light">
-        <h2 class="section-title">Let's Connect</h2>
-        <p class="contact-subtitle">I am currently looking for entry-level opportunities, internships, and data-driven collaborations.</p>
+    <div class="console-wrapper">
         
-        <div class="contact-container">
-            <form id="contact-form" class="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
-
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/jagadishhugar" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/jagadishhugar" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i></a>
+        <aside class="sidebar">
+            <div class="identity">
+                <div class="status-indicator">
+                    <span class="pulse-dot"></span>
+                    <span class="status-text">MODEL_CONVERGED // LOSS: 0.023</span>
+                </div>
+                <h1 class="identity-title">JAGADISH_H<span class="blink">_</span></h1>
+                <p class="identity-sub">DATA_SCIENTIST // ML_ENGINEER</p>
             </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Jagadish H. All rights reserved.</p>
-    </footer>
+            <nav class="matrix-menu">
+                <a href="#pipeline-init" class="menu-item active"><span class="nav-num">01 //</span> INIT_PROFILE</a>
+                <a href="#feature-space" class="menu-item"><span class="nav-num">02 //</span> FEATURE_SPACE</a>
+                <a href="#model-registry" class="menu-item"><span class="nav-num">03 //</span> MODEL_REGISTRY</a>
+                <a href="#comms-layer" class="menu-item"><span class="nav-num">04 //</span> COMMS_LAYER</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>ENV: PYTHON_3.11 // CUDA_ENABLED</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            
+            <section id="pipeline-init" class="content-section">
+                <div class="section-header">
+                    <h2>[01_INITIALIZE_PIPELINE_PROFILE]</h2>
+                </div>
+                <div class="card-terminal bio-box">
+                    <p class="terminal-prompt">root@jagadish_h:~$ import intelligence as ds</p>
+                    <p class="terminal-prompt">root@jagadish_h:~$ ds.get_profile_summary()</p>
+                    <p class="terminal-response">
+                        >> Entry-level professional engineering high-dimensional data processing frameworks, deep learning topologies, and relational analytics engines. Built to ingest raw structured/unstructured datasets and train highly optimized algorithmic pipelines.
+                    </p>
+                    <p class="terminal-response">
+                        >> Core philosophy leans on statistical rigor and algorithmic efficiency—minimizing cost functions and structural complexity while maximizing validation metrics across edge deployments.
+                    </p>
+                </div>
+            </section>
+
+            <section id="feature-space" class="content-section">
+                <div class="section-header">
+                    <h2>[02_FEATURE_SPACE_WEIGHTS]</h2>
+                </div>
+                
+                <div class="matrix-grid">
+                    <div class="matrix-card">
+                        <div class="card-header"><i class="fas fa-code-branch"></i> CORE_COMPUTE</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python (Pandas/NumPy)</span>
+                            <span class="tech-tag">SQL (DDL/DML)</span>
+                            <span class="tech-tag">C Language Architecture</span>
+                            <span class="tech-tag">Java SE</span>
+                        </div>
+                    </div>
+
+                    <div class="matrix-card">
+                        <div class="card-header"><i class="fas fa-brain"></i> MATHEMATICAL_MODELS</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Neural Networks (ANN)</span>
+                            <span class="tech-tag">Predictive Analytics</span>
+                            <span class="tech-tag">Hyperparameter Tuning</span>
+                            <span class="tech-tag">Data Structures & Algos</span>
+                        </div>
+                    </div>
+
+                    <div class="matrix-card">
+                        <div class="card-header"><i class="fas fa-database"></i> INFRASTRUCTURE</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">MySQL Relational Engines</span>
+                            <span class="tech-tag">Scikit-Learn Ecosystem</span>
+                            <span class="tech-tag">Git Version Architecture</span>
+                            <span class="tech-tag">EDA Pipelines</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="model-registry" class="content-section">
+                <div class="section-header">
+                    <h2>[03_DEPLOYED_MODEL_REGISTRY]</h2>
+                </div>
+
+                <div class="repo-list">
+                    
+                    <div class="repo-item">
+                        <div class="repo-meta">WEIGHT_ID // DEEP_LEARNING_01</div>
+                        <h3 class="repo-title">Artificial Neural Network Engine</h3>
+                        <p class="repo-desc">Designed and deployed a multi-layer feedforward neural network optimized for non-linear classification tasks. Fine-tuned learning rate schedules, implemented backpropagation matrices, and mapped loss convergence loops to safeguard against overfitting.</p>
+                        <div class="repo-footer">
+                            <span class="repo-lang"><i class="fas fa-chart-line"></i> Acc: ~Optimized</span>
+                            <span class="repo-lang">#scikit-learn</span>
+                            <a href="https://github.com" target="_blank" class="repo-link">PULL_REPOSITORY <i class="fas fa-terminal"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="repo-item">
+                        <div class="repo-meta">WEIGHT_ID // ARCHITECTURE_02</div>
+                        <h3 class="repo-title">Emergency Blood Bank Registry</h3>
+                        <p class="repo-desc">Architected a highly efficient Relational Database Management System (RDBMS) configured to match supply-demand node constraints instantly during medical shortages. Implemented database triggers, normalization keys, and complex nested queries for atomic execution.</p>
+                        <div class="repo-footer">
+                            <span class="repo-lang"><i class="fas fa-database"></i> Relational-MySQL</span>
+                            <span class="repo-lang">#schema-design</span>
+                            <a href="https://github.com" target="_blank" class="repo-link">PULL_REPOSITORY <i class="fas fa-terminal"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="repo-item">
+                        <div class="repo-meta">WEIGHT_ID // UTILITY_03</div>
+                        <h3 class="repo-title">Programming Language Translation Utility</h3>
+                        <p class="repo-desc">An interactive script tokenization engine that simulates translation pipelines across separate development interfaces. Emphasizes client-side code optimization, syntax parsing heuristics, and structural trees.</p>
+                        <div class="repo-footer">
+                            <span class="repo-lang"><i class="fas fa-code"></i> AST-Parsing</span>
+                            <span class="repo-lang">#vanilla-js</span>
+                            <a href="https://github.com" target="_blank" class="repo-link">PULL_REPOSITORY <i class="fas fa-terminal"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="comms-layer" class="content-section">
+                <div class="section-header">
+                    <h2>[04_ESTABLISH_SOCKET_HANDSHAKE]</h2>
+                </div>
+
+                <div class="card-terminal">
+                    <p class="terminal-prompt">root@jagadish_h:~$ ssh client@remote_connection -p 2026</p>
+                    
+                    <form id="secure-form" class="cyber-form">
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label>SENDER_IDENTITY:</label>
+                                <input type="text" required placeholder="Recruiter / Project Lead">
+                            </div>
+                            <div class="input-group">
+                                <label>IP_ENDPOINT_EMAIL:</label>
+                                <input type="email" required placeholder="lead@enterprise.com">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>DATA_STREAM_PAYLOAD:</label>
+                            <textarea rows="4" required placeholder="Type parameters of opportunity or collaborative inquiry here..."></textarea>
+                        </div>
+                        <button type="submit" class="cyber-btn">PUSH_TO_SOCKET</button>
+                    </form>
+                    
+                    <div id="terminal-log-box" class="embedded-console" style="display: none;">
+                        <div class="console-header">📡 SOCKET_INTERFACE // DATA_PIPELINE_STATUS</div>
+                        <div id="terminal-text-flow" class="console-flow"></div>
+                    </div>
+                    
+                    <div class="terminal-socials">
+                        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i> LINKEDIN_NODE</a>
+                        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i> GIT_HUB_TREE</a>
+                        <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i> DIRECT_MAIL</a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
 
     <script src="script.js"></script>
 </body>
