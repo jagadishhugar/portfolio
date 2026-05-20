@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Mobile Menu View Toggle
+    // 1. Mobile Menu Navigation Toggle
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
     if (mobileMenu && navLinks) {
@@ -9,75 +9,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Data Pipeline & Success Modal Selectors
+    // 2. Google Form Form Data Background Pipeline Engine
     const contactForm = document.getElementById('contact-form');
-    const logBox = document.getElementById('terminal-log-box');
-    const textFlow = document.getElementById('terminal-text-flow');
-    const successModal = document.getElementById('success-modal');
-    const closeModalBtn = document.getElementById('close-modal-btn');
-    
-    if (contactForm && logBox && textFlow && successModal) {
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault(); 
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            if (submitBtn) submitBtn.disabled = true; 
-            
-            logBox.style.display = 'block'; 
-            textFlow.innerHTML = ''; 
+            const submitBtn = document.getElementById('submit-btn');
+            submitBtn.innerText = "Sending...";
+            submitBtn.disabled = true;
 
-            // Targets verified ID attributes from updated layout
-            const nameValue = document.getElementById('form-name').value;
-            const emailValue = document.getElementById('form-email').value;
-            const messageValue = document.getElementById('form-message').value;
-
-            const printTerminalLog = (text, delay) => {
-                return new Promise(resolve => setTimeout(() => {
-                    textFlow.innerHTML += text + '\n';
-                    resolve();
-                }, delay));
-            };
-
-            await printTerminalLog(`> Initializing secure connection to target database cell...`, 100);
-            await printTerminalLog(`> Compiling packet structural matrix [Identity: "${nameValue}"]`, 350);
-            await printTerminalLog(`> Validating transmission authorization keys [Endpoint: "${emailValue}"]`, 250);
-            await printTerminalLog(`> Pushing background payload packet stream to pipeline array...`, 400);
+            // Reading element values cleanly via structural IDs
+            const name = document.getElementById('form-name').value;
+            const email = document.getElementById('form-email').value;
+            const message = document.getElementById('form-message').value;
 
             const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdwYzgK_Ns6CTh-tTnEB3XTRzBeMBK1j_MoBsUzEJcx7C4rAQ/formResponse";
             
-            const hiddenPayload = new FormData();
-            hiddenPayload.append("entry.355204745", nameValue);    
-            hiddenPayload.append("entry.2044133355", emailValue);   
-            hiddenPayload.append("entry.666904480", messageValue); 
+            const formData = new FormData();
+            formData.append("entry.355204745", name);
+            formData.append("entry.2044133355", email);
+            formData.append("entry.666904480", message);
 
-            https://docs.google.com/forms/d/e/1FAIpQLSdwYzgK_Ns6CTh-tTnEB3XTRzBeMBK1j_MoBsUzEJcx7C4rAQ/viewform?usp=header
-            try {
-                await fetch(GOOGLE_FORM_URL, {
-                    method: "POST",
-                    mode: "no-cors", 
-                    body: hiddenPayload
-                });
-
-                await printTerminalLog(`\n[✔] SUCCESS: Handshake finalized. Data package safely absorbed.`, 400);
-                await printTerminalLog(`[✔] SYSTEM STATUS: Data logged to master sheet structure.`, 200);
-                
-                setTimeout(() => {
-                    successModal.classList.add('active');
-                }, 300);
-
-                contactForm.reset(); 
-            } catch (error) {
-                console.error("Pipeline Transmission Error: ", error);
-                textFlow.innerHTML += `\n<span style="color: #ff5555;">[🗙] DATA_PIPELINE_ERROR: Stream disconnected. Transfer timeout.</span>\n`;
-            } finally {
-                if (submitBtn) submitBtn.disabled = false; 
-            }
-        });
-    }
-
-    if (closeModalBtn && successModal) {
-        closeModalBtn.addEventListener('click', () => {
-            successModal.classList.remove('active');
+            // Transmitting payload packets natively via async AJAX fetch hooks
+            fetch(GOOGLE_FORM_URL, {
+                method: "POST",
+                mode: "no-cors",
+                body: formData
+            })
+            .then(() => {
+                alert("Message sent successfully!");
+                contactForm.reset();
+            })
+            .catch((error) => {
+                console.error("Transmission Error:", error);
+                alert("Something went wrong. Please check your form configuration.");
+            })
+            .finally(() => {
+                submitBtn.innerText = "Send Message";
+                submitBtn.disabled = false;
+            });
         });
     }
 });
