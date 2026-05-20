@@ -1,60 +1,49 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Array Intersection Evaluation for Section Nav Highlighting
-    const sections = document.querySelectorAll('.content-section');
-    const menuItems = document.querySelectorAll('.menu-item');
-
-    window.addEventListener('scroll', () => {
-        let activeScope = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            if (window.scrollY >= (sectionTop - 220)) {
-                activeScope = section.getAttribute('id');
-            }
+    // 1. Mobile Menu View Toggle (Keeps your navbar responsive)
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileMenu && navLinks) {
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
+    }
 
-        menuItems.forEach(item => {
-            item.classList.remove('active');
-            if (item.getAttribute('href').slice(1) === activeScope) {
-                item.classList.add('active');
-            }
-        });
-    });
-
-    // 2. Invisible Google Form Interceptor and Live Logger Engine
-    const secureForm = document.getElementById('secure-form');
+    // 2. Data Pipeline & Success Modal Selectors
+    const contactForm = document.getElementById('contact-form');
     const logBox = document.getElementById('terminal-log-box');
     const textFlow = document.getElementById('terminal-text-flow');
+    const successModal = document.getElementById('success-modal');
+    const closeModalBtn = document.getElementById('close-modal-btn');
     
-    if (secureForm && logBox && textFlow) {
-        secureForm.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Blocks Google from taking over the window
+    if (contactForm && logBox && textFlow && successModal) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Stifles default browser page reloads entirely
             
-            const pushBtn = secureForm.querySelector('.cyber-btn');
-            if (pushBtn) pushBtn.disabled = true;
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            if (submitBtn) submitBtn.disabled = true; // Prevents spam double-clicks
             
-            logBox.style.display = 'block'; // Make the interactive console block visible
-            textFlow.innerHTML = ''; // Reset terminal output stream
+            logBox.style.display = 'block'; // Make terminal console active
+            textFlow.innerHTML = ''; // Wipe previous logs cleanly
 
-            // Extract the user values dynamically from text fields
-            const nameValue = secureForm.querySelector('input[placeholder="Recruiter / Project Lead"]').value;
-            const emailValue = secureForm.querySelector('input[placeholder="lead@enterprise.com"]').value;
-            const messageValue = secureForm.querySelector('textarea').value;
+            // Extract what your recruiter/visitor typed out in your HTML inputs
+            const nameValue = contactForm.querySelector('input[type="text"]').value;
+            const emailValue = contactForm.querySelector('input[type="email"]').value;
+            const messageValue = contactForm.querySelector('textarea').value;
 
-            // Helper utility to write out timed log arrays on your interface frame
-            const printLog = (text, delay) => {
+            // Micro-helper function to output text lines with specific typing delays
+            const printTerminalLog = (text, delay) => {
                 return new Promise(resolve => setTimeout(() => {
                     textFlow.innerHTML += text + '\n';
                     resolve();
                 }, delay));
             };
 
-            // Phase 1: Print customized execution processes directly on the terminal card
-            await printLog(`> Initializing socket sync to target database node...`, 100);
-            await printLog(`> Structuring data frame matrix [Identity: "${nameValue}"]`, 350);
-            await printLog(`> Mapping transaction authorization keys [Endpoint: "${emailValue}"]`, 250);
-            await printLog(`> Deploying data packet payload via background workers...`, 400);
+            // Run real-time typewriter logging steps on the UI
+            await printTerminalLog(`> Initializing secure connection to target database cell...`, 100);
+            await printTerminalLog(`> Compiling packet structural matrix [Identity: "${nameValue}"]`, 350);
+            await printTerminalLog(`> Validating transmission authorization keys [Endpoint: "${emailValue}"]`, 250);
+            await printTerminalLog(`> Pushing background payload packet stream to pipeline array...`, 400);
 
             // 🚨 CONFIGURATION: Replace these dummy variables with your true values from Step 5!
             const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdwYzgK_Ns6CTh-tTnEB3XTRzBeMBK1j_MoBsUzEJcx7C4rAQ/formResponse";
@@ -64,25 +53,37 @@ document.addEventListener('DOMContentLoaded', () => {
             hiddenPayload.append("entry.2044133355", emailValue);   // Change entry number to your Email ID
             hiddenPayload.append("entry.666904480", messageValue); // Change entry number to your Message ID
 
-            // Phase 2: Transmit hidden payload seamlessly in the background
+            // Execute the backend web transaction silently
             try {
                 await fetch(GOOGLE_FORM_URL, {
                     method: "POST",
-                    mode: "no-cors", // Bypasses cross-origin restrictions, allowing silent storage
+                    mode: "no-cors", // Tells browser to pass data invisibly without a redirection page
                     body: hiddenPayload
                 });
 
-                // Phase 3: Print exit response statements directly inside the interface
-                await printLog(`\n[✔] SUCCESS: Handshake finalized. Core data payload synced 100%.`, 400);
-                await printLog(`[✔] AGENT EXIT CODE: 0x00 // Systems returning to standby state.`, 200);
+                // Finish terminal interface updates
+                await printTerminalLog(`\n[✔] SUCCESS: Handshake finalized. Data package safely absorbed.`, 400);
+                await printTerminalLog(`[✔] SYSTEM STATUS: Data logged to master sheet structure.`, 200);
                 
-                secureForm.reset(); // Safely clear your entry boxes
+                // Trigger the beautiful modal popup block
+                setTimeout(() => {
+                    successModal.classList.add('active');
+                }, 300);
+
+                contactForm.reset(); // Safely clear form boxes
             } catch (error) {
-                console.error(error);
-                textFlow.innerHTML += `\n<span style="color: #ff4444;">[🗙] CRITICAL FAILURE: Connection dropped. Stream terminated.</span>\n`;
+                console.error("Pipeline Transmission Error: ", error);
+                textFlow.innerHTML += `\n<span style="color: #ff5555;">[🗙] DATA_PIPELINE_ERROR: Stream disconnected. Transfer timeout.</span>\n`;
             } finally {
-                if (pushBtn) pushBtn.disabled = false;
+                if (submitBtn) submitBtn.disabled = false; // Restore submission controls
             }
+        });
+    }
+
+    // 3. Modal Close Trigger Action
+    if (closeModalBtn && successModal) {
+        closeModalBtn.addEventListener('click', () => {
+            successModal.classList.remove('active');
         });
     }
 });
