@@ -81,7 +81,7 @@ body {
 .nav-item {
     position: relative;
     text-decoration: none;
-    color: blue; /* Soft slate color text for unselected elements */
+    color: green; /* Soft slate color text for unselected elements */
     font-weight: 600;
     font-size: 14px;
     letter-spacing: 0.5px;
