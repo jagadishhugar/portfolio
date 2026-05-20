@@ -162,58 +162,6 @@
         <p>&copy; 2026 Jagadish H. All rights reserved.</p>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Mobile navigation menu toggle
-            const mobileMenu = document.getElementById('mobile-menu');
-            const navLinks = document.querySelector('.nav-links');
-            if (mobileMenu && navLinks) {
-                mobileMenu.addEventListener('click', () => {
-                    navLinks.classList.toggle('active');
-                });
-            }
-
-            // Form Submit Logic
-            const contactForm = document.getElementById('contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    const submitBtn = document.getElementById('submit-btn');
-                    submitBtn.innerText = "Sending...";
-                    submitBtn.disabled = true;
-
-                    const name = document.getElementById('form-name').value;
-                    const email = document.getElementById('form-email').value;
-                    const message = document.getElementById('form-message').value;
-
-                    const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdwYzgK_Ns6CTh-tTnEB3XTRzBeMBK1j_MoBsUzEJcx7C4rAQ/formResponse";
-                    
-                    const formData = new FormData();
-                    formData.append("entry.355204745", name);
-                    formData.append("entry.2044133355", email);
-                    formData.append("entry.666904480", message);
-
-                    fetch(GOOGLE_FORM_URL, {
-                        method: "POST",
-                        mode: "no-cors",
-                        body: formData
-                    })
-                    .then(() => {
-                        alert("Message sent successfully!");
-                        contactForm.reset();
-                    })
-                    .catch((error) => {
-                        console.error("Error sending message:", error);
-                        alert("Something went wrong. Please check your form visibility configurations.");
-                    })
-                    .finally(() => {
-                        submitBtn.innerText = "Send Message";
-                        submitBtn.disabled = false;
-                    });
-                });
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
