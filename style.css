@@ -89,62 +89,51 @@ body {
     color: var(--accent);
 }
 
-/* ==========================================================================
-   NAVIGATION BAR (DESKTOP & GENERAL)
-   ========================================================================== */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(10, 25, 47, 0.85); /* Smooth dark background */
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    border-bottom: 1px solid rgba(100, 255, 218, 0.1);
-}
+/* Main capsule container */
+    .navbar-pill {
+      position: relative; /* Essential for positioning the sliding background */
+      display: flex;
+      align-items: center;
+      background-color: #ffffff;
+      padding: 8px;
+      border-radius: 50px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      z-index: 1;
+    }
 
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+    /* Individual navigation links */
+    .nav-item {
+      position: relative;
+      text-decoration: none;
+      color: #000000;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      padding: 14px 28px;
+      border-radius: 40px;
+      z-index: 3; /* Keeps text above the sliding indicator */
+      transition: color 0.3s ease;
+    }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #fff;
-    text-decoration: none;
-    letter-spacing: 1px;
-}
+    /* When an item is active or hovered, its text turns white */
+    .nav-item.active,
+    .nav-item.hovered {
+      color: #ffffff;
+    }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 35px;
-}
-
-.nav-links a {
-    color: #cdf1ee;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 400;
-    transition: 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: #64ffda; /* Your green accent color */
-}
-
-/* Hidden by default on desktop computers */
-.menu-toggle {
-    display: none;
-    color: #64ffda;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
+    /* The sliding black pill background */
+    .nav-indicator {
+      position: absolute;
+      background-color: #000000;
+      border-radius: 40px;
+      top: 8px;
+      left: 8px;
+      height: calc(100% - 16px); /* Perfect height matching the text padding */
+      width: 0;
+      z-index: 2;
+      /* This property creates the smooth fluid sliding animation */
+      transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1); 
+    }
 
 /* ==========================================================================
    RESPONSIVE LAYOUT (MOBILE BREAKPOINT)
