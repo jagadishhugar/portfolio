@@ -1,23 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Mobile Menu Navigation Dropdown Toggle
+    // Mobile Drawer Navigation Logic
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
     
     if (mobileMenu && navLinks) {
+        // Toggle slide-out screen when clicking the menu bar icon
         mobileMenu.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            
+            // Morph the fontawesome icon class between bars and an X mark
+            const menuIcon = mobileMenu.querySelector('i');
+            if (menuIcon) {
+                menuIcon.classList.toggle('fa-bars');
+                menuIcon.classList.toggle('fa-times');
+            }
         });
         
-        // Optional: Closes the mobile menu automatically when a link is clicked
+        // Automatically slide away the panel whenever a menu link is tapped
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
+                
+                const menuIcon = mobileMenu.querySelector('i');
+                if (menuIcon) {
+                    menuIcon.classList.add('fa-bars');
+                    menuIcon.classList.remove('fa-times');
+                }
             });
         });
     }
 
-    // 2. Google Form Background Data Pipeline Engine
+    // Google Form Background Submission Pipeline
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -29,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitBtn.disabled = true;
             }
 
-            // Reading element values securely via structural HTML IDs
             const name = document.getElementById('form-name').value;
             const email = document.getElementById('form-email').value;
             const message = document.getElementById('form-message').value;
@@ -41,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
             formData.append("entry.2044133355", email);
             formData.append("entry.666904480", message);
 
-            // Transmitting payload packets natively via silent AJAX fetch hooks
             fetch(GOOGLE_FORM_URL, {
                 method: "POST",
                 mode: "no-cors",
@@ -52,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 contactForm.reset();
             })
             .catch((error) => {
-                console.error("Transmission Pipeline Error:", error);
+                console.error("Pipeline Transmission Error:", error);
                 alert("Something went wrong. Please check your network connection.");
             })
             .finally(() => {
