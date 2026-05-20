@@ -26,10 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
             logBox.style.display = 'block'; // Make terminal console active
             textFlow.innerHTML = ''; // Wipe previous logs cleanly
 
-            // Extract what your recruiter/visitor typed out in your HTML inputs
-            const nameValue = contactForm.querySelector('input[type="text"]').value;
-            const emailValue = contactForm.querySelector('input[type="email"]').value;
-            const messageValue = contactForm.querySelector('textarea').value;
+            // Fixed Selector Strategy: Targets exact ID tokens from updated HTML layout
+            const nameValue = document.getElementById('form-name').value;
+            const emailValue = document.getElementById('form-email').value;
+            const messageValue = document.getElementById('form-message').value;
 
             // Micro-helper function to output text lines with specific typing delays
             const printTerminalLog = (text, delay) => {
@@ -45,13 +45,13 @@ document.addEventListener('DOMContentLoaded', () => {
             await printTerminalLog(`> Validating transmission authorization keys [Endpoint: "${emailValue}"]`, 250);
             await printTerminalLog(`> Pushing background payload packet stream to pipeline array...`, 400);
 
-            // 🚨 CONFIGURATION: Replace these dummy variables with your true values from Step 5!
+            // Verified Endpoint Architecture Configuration Target
             const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdwYzgK_Ns6CTh-tTnEB3XTRzBeMBK1j_MoBsUzEJcx7C4rAQ/formResponse";
             
             const hiddenPayload = new FormData();
-            hiddenPayload.append("entry.355204745", nameValue);    // Change entry number to your Name ID
-            hiddenPayload.append("entry.2044133355", emailValue);   // Change entry number to your Email ID
-            hiddenPayload.append("entry.666904480", messageValue); // Change entry number to your Message ID
+            hiddenPayload.append("entry.355204745", nameValue);    // Validated Name Target ID Key
+            hiddenPayload.append("entry.2044133355", emailValue);   // Validated Email Target ID Key
+            hiddenPayload.append("entry.666904480", messageValue); // Validated Message Target ID Key
 
             // Execute the backend web transaction silently
             try {
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 await printTerminalLog(`\n[✔] SUCCESS: Handshake finalized. Data package safely absorbed.`, 400);
                 await printTerminalLog(`[✔] SYSTEM STATUS: Data logged to master sheet structure.`, 200);
                 
-                // Trigger the beautiful modal popup block
+                // Trigger the modal popup block smoothly
                 setTimeout(() => {
                     successModal.classList.add('active');
                 }, 300);
