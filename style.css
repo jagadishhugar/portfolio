@@ -6,7 +6,7 @@
     --bg-light-dark: #112240;  
     --text-light: #ccd6f6;     
     --text-white: #ffffff;     
-    --accent: #64ffda;         
+    --accent: #00bfff;         /* Beautiful electric blue color accent */
     --transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
@@ -34,7 +34,7 @@ body {
 }
 
 /* ==========================================================================
-   2. SCREEN FLOATING BLACK SLIDING PILL NAVBAR STYLE
+   2. BLUE CAPSULE FLOATING SLIDING PILL NAVBAR
    ========================================================================== */
 .navbar-global {
     position: fixed;
@@ -44,7 +44,7 @@ body {
     background-color: rgba(10, 25, 47, 0.85);
     backdrop-filter: blur(12px);
     z-index: 1000;
-    border-bottom: 1px solid rgba(100, 255, 218, 0.08);
+    border-bottom: 1px solid rgba(0, 191, 255, 0.08);
 }
 
 .nav-container {
@@ -64,42 +64,43 @@ body {
     letter-spacing: 1px;
 }
 
-/* Main capsule frame base */
+/* Changed layout from white to premium matching background dark blue */
 .navbar-pill {
     position: relative;
     display: flex;
     align-items: center;
-    background-color: #ffffff; /* Matches white container from your screenshot */
+    background-color: var(--bg-light-dark); 
     padding: 8px;
     border-radius: 50px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     z-index: 1;
+    border: 1px solid rgba(0, 191, 255, 0.1);
 }
 
-/* Links inside pill */
+/* Links inside pill nav */
 .nav-item {
     position: relative;
     text-decoration: none;
-    color: #000000; /* Dark text matching screenshot base state */
+    color: #a8b2d1; /* Soft slate color text for unselected elements */
     font-weight: 600;
     font-size: 14px;
     letter-spacing: 0.5px;
     padding: 14px 28px;
     border-radius: 40px;
-    z-index: 3; /* Elevated above background slider */
+    z-index: 3; 
     transition: color 0.3s ease;
 }
 
-/* White active text tracking rule */
+/* Turns white explicitly over highlighted active pill */
 .nav-item.active,
 .nav-item.hovered {
-    color: #ffffff !important; /* Turns white over active black pill backgrounds */
+    color: var(--text-white) !important; 
 }
 
-/* Sliding pill background tracker */
+/* Sliding active pill background tracker changed to accent blue */
 .nav-indicator {
     position: absolute;
-    background-color: #000000; /* Matches the black active pill from screenshot */
+    background-color: var(--accent); 
     border-radius: 40px;
     top: 8px;
     left: 8px;
@@ -107,6 +108,7 @@ body {
     width: 0;
     z-index: 2;
     transition: var(--transition); 
+    box-shadow: 0 2px 10px rgba(0, 191, 255, 0.3);
 }
 
 .menu-toggle {
@@ -179,11 +181,11 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: rgba(100, 255, 218, 0.1);
+    background-color: rgba(0, 191, 255, 0.1);
 }
 
 .btn-secondary {
-    background-color: rgba(100, 255, 218, 0.05);
+    background-color: rgba(0, 191, 255, 0.05);
     color: var(--text-white);
     border: 1px solid transparent;
 }
@@ -244,7 +246,7 @@ body {
     background-color: var(--bg-light-dark);
     padding: 30px;
     border-radius: 6px;
-    border: 1px solid rgba(100, 255, 218, 0.03);
+    border: 1px solid rgba(0, 191, 255, 0.03);
 }
 
 .skills-category h3 {
@@ -268,7 +270,7 @@ body {
     padding: 6px 14px;
     border-radius: 4px;
     font-size: 0.85rem;
-    border: 1px solid rgba(100, 255, 218, 0.05);
+    border: 1px solid rgba(0, 191, 255, 0.05);
 }
 
 .projects-grid {
@@ -282,13 +284,13 @@ body {
     border-radius: 6px;
     padding: 30px;
     transition: var(--transition);
-    border: 1px solid rgba(100, 255, 218, 0.02);
+    border: 1px solid rgba(0, 191, 255, 0.02);
     display: flex;
 }
 
 .project-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(100, 255, 218, 0.15);
+    border-color: rgba(0, 191, 255, 0.15);
     box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
 }
 
@@ -345,60 +347,76 @@ body {
 }
 
 /* ==========================================================================
-   5. ASYNC CONTACT PIPE FORMS
+   5. CENTERED CONTACT SECTION FRAMEWORK
    ========================================================================== */
+.contact-section-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center; /* Centers titles and description texts */
+}
+
+.contact-section-wrapper .section-title {
+    justify-content: center; /* Centers horizontal header graphic bar */
+}
+
+.contact-section-wrapper .section-title::after {
+    width: 120px; /* Balanced border divider line width */
+}
+
 .contact-subtitle {
-    max-width: 500px;
-    margin-bottom: 40px;
+    margin: 0 auto 40px auto;
 }
 
 .contact-container {
     display: flex;
     flex-direction: column;
-    gap: 40px;
-    max-width: 600px;
+    gap: 35px;
+    width: 100%;
 }
 
 .contact-form {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 100%;
 }
 
 .contact-form input,
 .contact-form textarea {
     width: 100%;
     background-color: var(--bg-light-dark);
-    border: 1px solid rgba(100, 255, 218, 0.1);
+    border: 1px solid rgba(0, 191, 255, 0.1);
     border-radius: 4px;
     padding: 16px;
     color: var(--text-white);
     font-family: inherit;
     font-size: 0.95rem;
     transition: var(--transition);
+    text-align: left; /* Text inputs stay clean left aligned */
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
     border-color: var(--accent);
-    box-shadow: 0 0 10px rgba(100, 255, 218, 0.05);
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.05);
 }
 
+/* Form Submit Button Alignment Override */
 .contact-form button {
-    align-self: flex-start;
+    align-self: center; /* Centers form submit button in the middle line */
     cursor: pointer;
     background-color: transparent;
     color: var(--accent);
     border: 1px solid var(--accent);
-    padding: 14px 32px;
+    padding: 14px 40px;
     font-weight: 600;
     border-radius: 4px;
     transition: var(--transition);
 }
 
 .contact-form button:hover:not(:disabled) {
-    background-color: rgba(100, 255, 218, 0.1);
+    background-color: rgba(0, 191, 255, 0.1);
 }
 
 .contact-form button:disabled {
@@ -406,20 +424,23 @@ body {
     cursor: not-allowed;
 }
 
+/* Centers LinkedIn, GitHub and Email Logo Matrix */
 .social-links {
     display: flex;
-    gap: 25px;
+    justify-content: center; 
+    gap: 30px;
+    margin-top: 10px;
 }
 
 .social-links a {
     color: var(--text-light);
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     transition: var(--transition);
 }
 
 .social-links a:hover {
     color: var(--accent);
-    transform: translateY(-3px);
+    transform: translateY(-4px);
 }
 
 footer {
@@ -431,7 +452,7 @@ footer {
 }
 
 /* ==========================================================================
-   6. RESPONSIVE COMPONENT LAYOUT MATRIX (MOBILE RECTIFICATION)
+   6. RESPONSIVE MOBILE OVERRIDES
    ========================================================================== */
 @media (max-width: 768px) {
     .nav-container { padding: 15px 25px; }
@@ -446,7 +467,6 @@ footer {
         z-index: 1002;
     }
 
-    /* Convert capsule to side menu drawer on touch displays */
     .navbar-pill {
         position: fixed;
         top: 0;
@@ -463,6 +483,7 @@ footer {
         box-shadow: -10px 0px 40px rgba(2, 12, 27, 0.6);
         transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         z-index: 1001;
+        border: none;
     }
 
     .navbar-pill.active {
@@ -478,14 +499,13 @@ footer {
         border-radius: 4px;
     }
 
-    /* Shut off sliding canvas calculations on mobile */
     .nav-indicator {
         display: none !important;
     }
 
     .nav-item.active,
     .nav-item:hover {
-        background-color: rgba(100, 255, 218, 0.08);
+        background-color: rgba(0, 191, 255, 0.08);
         color: var(--accent) !important;
     }
 }
