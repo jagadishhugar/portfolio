@@ -57,12 +57,12 @@ document.addEventListener('DOMContentLoaded', () => {
             await printLog(`> Deploying data packet payload via background workers...`, 400);
 
             // 🚨 CONFIGURATION: Replace these dummy variables with your true values from Step 5!
-            const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/formResponse";
+            const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdwYzgK_Ns6CTh-tTnEB3XTRzBeMBK1j_MoBsUzEJcx7C4rAQ/formResponse";
             
             const hiddenPayload = new FormData();
-            hiddenPayload.append("entry.11111111", nameValue);    // Change entry number to your Name ID
-            hiddenPayload.append("entry.22222222", emailValue);   // Change entry number to your Email ID
-            hiddenPayload.append("entry.33333333", messageValue); // Change entry number to your Message ID
+            hiddenPayload.append("entry.355204745", nameValue);    // Change entry number to your Name ID
+            hiddenPayload.append("entry.2044133355", emailValue);   // Change entry number to your Email ID
+            hiddenPayload.append("entry.666904480", messageValue); // Change entry number to your Message ID
 
             // Phase 2: Transmit hidden payload seamlessly in the background
             try {
