@@ -3,9 +3,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Mobile Menu Navigation Dropdown Toggle
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
+    
     if (mobileMenu && navLinks) {
         mobileMenu.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+        });
+        
+        // Optional: Closes the mobile menu automatically when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
         });
     }
 
@@ -16,8 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             
             const submitBtn = document.getElementById('submit-btn');
-            submitBtn.innerText = "Sending...";
-            submitBtn.disabled = true;
+            if (submitBtn) {
+                submitBtn.innerText = "Sending...";
+                submitBtn.disabled = true;
+            }
 
             // Reading element values securely via structural HTML IDs
             const name = document.getElementById('form-name').value;
@@ -46,8 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert("Something went wrong. Please check your network connection.");
             })
             .finally(() => {
-                submitBtn.innerText = "Send Message";
-                submitBtn.disabled = false;
+                if (submitBtn) {
+                    submitBtn.innerText = "Send Message";
+                    submitBtn.disabled = false;
+                }
             });
         });
     }
