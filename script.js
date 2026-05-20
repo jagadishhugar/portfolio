@@ -1,37 +1,106 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Mobile Drawer Navigation Logic
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
+    // ==========================================================================
+    // 1. DYNAMIC SLIDING PILL NAVIGATION LOGIC ENGINE
+    // ==========================================================================
+    const navbar = document.querySelector('.navbar-pill');
+    const items = document.querySelectorAll('.nav-item');
+    const indicator = document.getElementById('indicator');
+
+    function moveIndicator(element) {
+        // Prevent layout calculation bugs if the menu is closed/hidden on mobile viewports
+        if (window.innerWidth <= 768 || !indicator || !navbar) return;
+
+        const navbarRect = navbar.getBoundingClientRect();
+        const elementRect = element.getBoundingClientRect();
+
+        // Calculate explicit exact pixel horizontal offset parameters relative to the pill frame
+        const leftPos = elementRect.left - navbarRect.left;
+        
+        indicator.style.left = `${leftPos}px`;
+        indicator.style.width = `${elementRect.width}px`;
+    }
+
+    // Capture standard initialization active target layer (ABOUT) on initial pipeline launch
+    let currentActiveItem = document.querySelector('.nav-item.active');
     
-    if (mobileMenu && navLinks) {
-        // Toggle slide-out screen when clicking the menu bar icon
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+    // Delayed initialization guarantees viewport layout bounds have completely rendered
+    setTimeout(() => {
+        if (currentActiveItem && window.innerWidth > 768) {
+            moveIndicator(currentActiveItem);
+        }
+    }, 150);
+
+    // Track state variations across the responsive link arrays
+    items.forEach(item => {
+        // Event Loop A: Mouse Hover Enter Action Link Tracking
+        item.addEventListener('mouseenter', (e) => {
+            if (window.innerWidth <= 768) return;
+            items.forEach(i => i.classList.remove('active', 'hovered'));
+            e.target.classList.add('hovered');
+            moveIndicator(e.target);
+        });
+
+        // Event Loop B: Mouse Hover Boundary Drop Restoration
+        item.addEventListener('mouseleave', () => {
+            if (window.innerWidth <= 768) return;
+            items.forEach(i => i.classList.remove('hovered'));
+            if (currentActiveItem) {
+                currentActiveItem.classList.add('active');
+                moveIndicator(currentActiveItem);
+            }
+        });
+        
+        // Event Loop C: Component Selection Target Override Updates
+        item.addEventListener('click', (e) => {
+            items.forEach(i => i.classList.remove('active'));
+            e.target.classList.add('active');
+            currentActiveItem = e.target;
             
-            // Morph the fontawesome icon class between bars and an X mark
+            if (window.innerWidth > 768) {
+                moveIndicator(currentActiveItem);
+            } else {
+                // Instantly collapse the mobile drawer view matrix panel when selecting links
+                if (navbar) navbar.classList.remove('active');
+                const menuIcon = document.querySelector('#mobile-menu i');
+                if (menuIcon) {
+                    menuIcon.classList.add('fa-bars');
+                    menuIcon.classList.remove('fa-times');
+                }
+            }
+        });
+    });
+
+    // Re-verify positions seamlessly if browser display boundaries scale dynamically
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && currentActiveItem) {
+            indicator.style.display = "block";
+            moveIndicator(currentActiveItem);
+        } else if (indicator) {
+            indicator.style.display = "none";
+        }
+    });
+
+    // ==========================================================================
+    // 2. MOBILE SIDEBAR DRAWER PANEL STATE LOGIC
+    // ==========================================================================
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenu && navbar) {
+        mobileMenu.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+            
             const menuIcon = mobileMenu.querySelector('i');
             if (menuIcon) {
                 menuIcon.classList.toggle('fa-bars');
                 menuIcon.classList.toggle('fa-times');
             }
         });
-        
-        // Automatically slide away the panel whenever a menu link is tapped
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                
-                const menuIcon = mobileMenu.querySelector('i');
-                if (menuIcon) {
-                    menuIcon.classList.add('fa-bars');
-                    menuIcon.classList.remove('fa-times');
-                }
-            });
-        });
     }
 
-    // Google Form Background Submission Pipeline
+    // ==========================================================================
+    // 3. GOOGLE FORM DISPATCH TRANSMISSION PIPELINE
+    // ==========================================================================
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
