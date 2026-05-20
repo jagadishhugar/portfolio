@@ -89,57 +89,98 @@ body {
     color: var(--accent);
 }
 
-/* --- Navigation Bar --- */
+/* ==========================================================================
+   NAVIGATION BAR (DESKTOP & GENERAL)
+   ========================================================================== */
 .navbar {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
-    background-color: rgba(10, 25, 47, 0.85);
+    background-color: rgba(10, 25, 47, 0.85); /* Smooth dark background */
     backdrop-filter: blur(10px);
     z-index: 1000;
-    box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
-    transition: var(--transition);
+    border-bottom: 1px solid rgba(100, 255, 218, 0.1);
 }
 
 .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
 }
 
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--text-light);
+    color: #fff;
     text-decoration: none;
+    letter-spacing: 1px;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
+    gap: 35px;
 }
 
-.nav-links li a {
-    color: var(--text-light);
+.nav-links a {
+    color: #cdf1ee;
     text-decoration: none;
-    padding: 10px 20px;
     font-size: 0.95rem;
-    transition: var(--transition);
+    font-weight: 400;
+    transition: 0.3s ease;
 }
 
-.nav-links li a:hover {
-    color: var(--accent);
+.nav-links a:hover {
+    color: #64ffda; /* Your green accent color */
 }
 
+/* Hidden by default on desktop computers */
 .menu-toggle {
     display: none;
+    color: #64ffda;
     font-size: 1.5rem;
     cursor: pointer;
 }
 
+/* ==========================================================================
+   RESPONSIVE LAYOUT (MOBILE BREAKPOINT)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Reveal the hamburger button */
+    .menu-toggle { 
+        display: block; 
+        z-index: 1001;
+    }
+
+    /* Pull the navigation panel off-screen into a hidden side-drawer */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hidden off-screen right */
+        width: 70%;
+        height: 100vh;
+        background-color: #112240; /* Slightly lighter accent card blue */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 35px;
+        transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: -10px 0px 30px rgba(2, 12, 27, 0.5);
+    }
+
+    /* When active class is injected via script, slide panel smoothly to the left */
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li a {
+        font-size: 1.2rem;
+    }
+}
 /* --- Hero Section --- */
 .hero {
     height: 100vh;
