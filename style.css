@@ -94,7 +94,7 @@ body {
 /* Turns white explicitly over highlighted active pill */
 .nav-item.active,
 .nav-item.hovered {
-    color: var(--black-red) !important; 
+    color: var(--text-white) !important; 
 }
 
 /* Sliding active pill background tracker changed to accent blue */
