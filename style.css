@@ -42,7 +42,7 @@ body {
     left: 0;
     width: 100%;
     background-color: rgba(10, 25, 47, 0.85);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(24px);
     z-index: 1000;
     border-bottom: 1px solid rgba(0, 191, 255, 0.08);
 }
@@ -81,7 +81,7 @@ body {
 .nav-item {
     position: relative;
     text-decoration: none;
-    color: #a8b2d1; /* Soft slate color text for unselected elements */
+    color: blue; /* Soft slate color text for unselected elements */
     font-weight: 600;
     font-size: 14px;
     letter-spacing: 0.5px;
@@ -94,7 +94,7 @@ body {
 /* Turns white explicitly over highlighted active pill */
 .nav-item.active,
 .nav-item.hovered {
-    color: var(--text-white) !important; 
+    color: var(--black-red) !important; 
 }
 
 /* Sliding active pill background tracker changed to accent blue */
