@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hiddenPayload.append("entry.2044133355", emailValue);   
             hiddenPayload.append("entry.666904480", messageValue); 
 
+            https://docs.google.com/forms/d/e/1FAIpQLSdwYzgK_Ns6CTh-tTnEB3XTRzBeMBK1j_MoBsUzEJcx7C4rAQ/viewform?usp=header
             try {
                 await fetch(GOOGLE_FORM_URL, {
                     method: "POST",
