@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Mobile Menu Navigation Toggle
+    // 1. Mobile Menu Navigation Dropdown Toggle
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
     if (mobileMenu && navLinks) {
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Google Form Form Data Background Pipeline Engine
+    // 2. Google Form Background Data Pipeline Engine
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.innerText = "Sending...";
             submitBtn.disabled = true;
 
-            // Reading element values cleanly via structural IDs
+            // Reading element values securely via structural HTML IDs
             const name = document.getElementById('form-name').value;
             const email = document.getElementById('form-email').value;
             const message = document.getElementById('form-message').value;
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             formData.append("entry.2044133355", email);
             formData.append("entry.666904480", message);
 
-            // Transmitting payload packets natively via async AJAX fetch hooks
+            // Transmitting payload packets natively via silent AJAX fetch hooks
             fetch(GOOGLE_FORM_URL, {
                 method: "POST",
                 mode: "no-cors",
@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 contactForm.reset();
             })
             .catch((error) => {
-                console.error("Transmission Error:", error);
-                alert("Something went wrong. Please check your form configuration.");
+                console.error("Transmission Pipeline Error:", error);
+                alert("Something went wrong. Please check your network connection.");
             })
             .finally(() => {
                 submitBtn.innerText = "Send Message";
