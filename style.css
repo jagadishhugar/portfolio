@@ -200,7 +200,8 @@ body {
 .section {
     padding: 100px 40px;
     max-width: 1100px;
-    margin: 20px auto;
+    margin: 50px auto;
+    margin-color: green;
 }
 
 .bg-light {
