@@ -72,11 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // of silently going nowhere (or to the wrong place).
     // ==========================================================
     if (contactForm) {
-        const GOOGLE_FORM_URL = 'PASTE_YOUR_FORM_RESPONSE_URL_HERE'; // .../formResponse
+        const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdwYzgK_Ns6CTh-tTnEB3XTRzBeMBK1j_MoBsUzEJcx7C4rAQ/formResponse"; // .../formResponse
         const FIELD_IDS = {
-            name: 'PASTE_NAME_ENTRY_ID_HERE',       // e.g. entry.123456789
-            email: 'PASTE_EMAIL_ENTRY_ID_HERE',     // e.g. entry.987654321
-            message: 'PASTE_MESSAGE_ENTRY_ID_HERE'  // e.g. entry.456789123
+            name: "entry.355204745",       // e.g. entry.123456789
+            email: "entry.2044133355",     // e.g. entry.987654321
+            message: "entry.666904480"  // e.g. entry.456789123
         };
         const isConfigured = GOOGLE_FORM_URL.startsWith('https://')
             && Object.values(FIELD_IDS).every(id => id.startsWith('entry.'));
