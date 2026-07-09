@@ -65,8 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
     //      https://docs.google.com/forms/d/e/XXXXXXXX/viewform
     //      and change "viewform" at the end to "formResponse". Paste that as
     //      GOOGLE_FORM_URL below.
-    //   4. Responses land in the linked Google Sheet, or the form's own
-    //      "Responses" tab.
+    //   4. In the Form, go to Responses -> click the green Sheets icon ->
+    //      "Create Spreadsheet." Every submission will then appear as a new
+    //      row in that Sheet automatically, in real time.
     //
     // Until configured, submissions safely show a fallback message instead
     // of silently going nowhere (or to the wrong place).
