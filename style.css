@@ -94,10 +94,14 @@ textarea:focus-visible {
     color: var(--text-muted);
     margin-left: 15px;
     background: none;
+    background-color: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
 }
 
 .btn-secondary:hover {
     color: var(--accent);
+    background-color: var(--accent-glow);
 }
 
 /* --- Navigation Bar --- */
