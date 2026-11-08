@@ -267,7 +267,6 @@ textarea:focus-visible {
 }
 
 .skills-category:hover {
-    transform: translateY(-5px);
     border-color: var(--accent);
 }
 
