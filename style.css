@@ -100,37 +100,58 @@ main > *:nth-child(even) {
 
 /* --- Buttons --- */
 .btn {
-    display: inline-block;
-    padding: 10px 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 22px;
     border-radius: 6px;
+    font-size: 0.95rem;
     font-weight: 500;
+    line-height: 1.2;
     text-decoration: none;
     transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
     cursor: pointer;
-    border: 2px solid transparent;
+    border: 1.5px solid transparent;
 }
 
+/* Primary action: solid plum-violet */
 .btn-primary {
-    background-color: var(--accent);
+    background-color: var(--accent);       /* #5E548E */
     border-color: var(--accent);
     color: #ffffff;
 }
 
 .btn-primary:hover {
-    background-color: var(--accent-hover);
+    background-color: var(--accent-hover); /* #231942 */
     border-color: var(--accent-hover);
+    color: #ffffff;
 }
 
+/* Secondary action: soft lavender tint with orchid border */
 .btn-secondary {
-    background-color: transparent;
-    border-color: var(--accent);
-    color: var(--text-primary);
+    background-color: rgba(159, 134, 192, 0.16); /* #9F86C0 tint */
+    border-color: var(--accent);               /* #5E548E */
+    color: var(--text-primary);                /* #231942 */
 }
 
 .btn-secondary:hover {
-    background-color: var(--accent-hover);
-    border-color: var(--accent-hover);
-    color: #ffffff;
+    background-color: rgba(159, 134, 192, 0.30);
+    border-color: var(--accent-hover);         /* #231942 */
+    color: var(--text-primary);
+}
+
+/* Tertiary action: subtle bordered ghost style */
+.btn-tertiary {
+    background-color: transparent;
+    border-color: var(--border-color);           /* #BE95C4 */
+    color: var(--text-primary);                /* #231942 */
+}
+
+.btn-tertiary:hover {
+    background-color: rgba(224, 177, 203, 0.28); /* #E0B1CB tint */
+    border-color: var(--accent);
+    color: var(--text-primary);
 }
 
 /* --- Navigation Bar --- */
