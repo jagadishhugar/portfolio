@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jagadishhugar.github.io
+Sitemap: https://jagadishhugar.github.io/portfolio/sitemap.xml

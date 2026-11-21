@@ -16,5 +16,11 @@ Personal portfolio website showcasing data analytics, relational database design
 ## Local Preview
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/jagadishhugar/](https://github.com/jagadishhugar/)<your-repository-name>.git
-   cd <your-repository-name>
+   git clone https://github.com/jagadishhugar/portfolio.git
+   cd portfolio
+
+## License
+
+The website source code (`index.html`, `style.css`, `script.js`, and supporting configuration files) is licensed under the [MIT License](LICENSE).
+
+Personal content—including my resume (`assets/Jagadish-Hugar-Resume.pdf`), biographical copy, branding assets (`assets/og-preview.png`), and project write-ups/media—is provided for viewing only and remains the property of Jagadish Hugar (or its respective project collaborators/owners). If you reuse this template, please replace all personal details and assets with your own.
